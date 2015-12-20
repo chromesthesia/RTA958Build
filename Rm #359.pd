@@ -1,0 +1,93 @@
+#N canvas 705 155 893 817 10;
+#X declare -lib mrpeach;
+#X msg 263 630 disconnect;
+#X obj 66 23 import mrpeach;
+#X obj 399 644 packOSC;
+#X obj 402 750 udpsend;
+#X obj 397 19 adc~;
+#X floatatom 310 294 5 0 0 0 - - -;
+#X floatatom 382 292 5 0 0 0 - - -;
+#X obj 314 210 fiddle~ 1024 1 20 3;
+#X obj 500 11 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 456 163 / 100;
+#X obj 330 166 *~;
+#X obj 516 238 tabwrite~ audio-in;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array audio-in 50 float 3;
+#A 0 0.00942505 0.00812505 0.00609366 0.00396204 0.00181884 -0.000266966
+-0.00208023 -0.00325292 -0.00399236 -0.00470283 -0.00519444 -0.00548934
+-0.00590448 -0.00629822 -0.00683336 -0.0079427 -0.00925649 -0.0100484
+-0.0104517 -0.011246 -0.0121697 -0.0125631 -0.0124616 -0.0122577 -0.0127278
+-0.0140711 -0.0156854 -0.016822 -0.0174453 -0.0178698 -0.0177448 -0.0170639
+-0.0158634 -0.0143282 -0.0126478 -0.0105753 -0.0086079 -0.0069993 -0.00593377
+-0.00582727 -0.00617942 -0.00642522 -0.0062146 -0.00563813 -0.00522755
+-0.00447447 -0.00281193 -0.000987476 0.00034994 0.00139712;
+#X coords 0 1 50 -1 200 140 1;
+#X restore 641 62 graph;
+#X obj 311 333 pack 0 100;
+#X obj 309 365 line;
+#X floatatom 311 405 5 0 0 0 - - -;
+#X floatatom 391 406 5 0 0 0 - - -;
+#X obj 345 247 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 516 206 metro 100;
+#X obj 517 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 541 486 5 0 0 0 - - -;
+#X obj 488 436 -;
+#X obj 546 270 print;
+#X obj 195 224 snapshot~;
+#X floatatom 195 249 0 0 0 0 - - -;
+#X obj 553 175 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 497 285 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 469 198 5 0 0 0 - - -;
+#X obj 389 333 pack 0 100;
+#X obj 391 367 line 0 25;
+#X obj 325 447 pack f f;
+#X obj 327 494 t list;
+#X obj 384 254 float;
+#X obj 308 254 float;
+#X msg 198 602 connect localhost 12013;
+#X msg 368 568 send /RCC359 \$1 \$2;
+#X msg 119 573 connect 10.16.110.195 12014;
+#X msg 38 546 connect 10.16.124.69 12018;
+#X connect 0 0 3 0;
+#X connect 2 0 3 0;
+#X connect 4 0 10 0;
+#X connect 5 0 13 0;
+#X connect 6 0 21 0;
+#X connect 6 0 26 0;
+#X connect 6 0 28 0;
+#X connect 7 0 33 0;
+#X connect 7 1 17 0;
+#X connect 7 3 32 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 1;
+#X connect 9 0 27 0;
+#X connect 10 0 7 0;
+#X connect 10 0 11 0;
+#X connect 10 0 23 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 30 0;
+#X connect 16 0 21 1;
+#X connect 16 0 30 1;
+#X connect 18 0 11 0;
+#X connect 19 0 18 0;
+#X connect 21 0 20 0;
+#X connect 23 0 24 0;
+#X connect 23 0 24 0;
+#X connect 25 0 18 0;
+#X connect 28 0 29 0;
+#X connect 29 0 16 0;
+#X connect 30 0 31 0;
+#X connect 31 0 35 0;
+#X connect 32 0 6 0;
+#X connect 33 0 5 0;
+#X connect 34 0 3 0;
+#X connect 35 0 2 0;
+#X connect 36 0 3 0;
+#X connect 37 0 3 0;
